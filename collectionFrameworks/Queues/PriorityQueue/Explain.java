@@ -1,4 +1,4 @@
-package collectionFrameworks.Lists.Queues.PriorityQueue;
+package collectionFrameworks.Queues.PriorityQueue;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
