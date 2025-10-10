@@ -8,6 +8,8 @@ ANO:- 23SCSE1011394
 
 
 Description:- The Repo consist the day to day discussed questions in the ADSA Class and my self practiced leetcode 
-questions for the class questions navigate to classRoom directory.
+questions.
+
+For the class questions navigate to classRoom directory.
 
 
