@@ -21,12 +21,17 @@ public class Solution {
            return new ArrayList<>();
         }
 
+        //First call
         return getLettersCombination(digits,0);
     }
 
     static String [] codes = {"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
 
+    //Recursive function
+
     static List<String> getLettersCombination(String digits,int indx){
+
+        //Unfolding Step
         if(indx == digits.length()){
             List<String> baseRes = new ArrayList<>();
             baseRes.add("");
@@ -39,6 +44,7 @@ public class Solution {
         char ch = digits.charAt(indx);
         String code = codes[ch - '0'];
 
+        //Mapping step
         for(String s:recRes){
             for(int i =0;i<code.length();i++){
                 char w = code.charAt(i);
