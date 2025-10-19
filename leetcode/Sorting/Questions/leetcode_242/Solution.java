@@ -73,18 +73,25 @@ public class Solution {
 
         HashMap<Character,Integer> map = new HashMap<>();
 
+        //Convert the s string into char array and put the ch as key by increment of one every time 
+        // to handle repeated values
         for(char ch:s.toCharArray()){
             map.put(ch,map.getOrDefault(ch,0)+1);
         }
 
+        //For every char in t cehck if that key already not exsist that means t contains a char not in s return false
         for(char ch:t.toCharArray()){
             if(!map.containsKey(ch)){
                 return false;
             }
 
+            // else just subrtract the count of same chars of s and t in hashmap 
             map.put(ch,map.get(ch)-1);
+
+            if(map.get(ch) == 0)map.remove(ch);
         }
 
+        //Finally if the hashmap is nutral then answer will be true else false
         return map.isEmpty();
     }
 
@@ -94,6 +101,7 @@ public class Solution {
 
         System.out.println(areAnagramsOptimal("aacc", "cacc"));
         System.out.println(areAnagramsHash("aacc", "cacc"));
+        System.out.println(areAnagramsHash("anagram", "nagaram"));
     }
     
 }
