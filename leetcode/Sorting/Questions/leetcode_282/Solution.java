@@ -68,6 +68,7 @@ public class Solution {
             actualSum += i;
         }
 
+        //Return the number which is missing and giving this marginal diffrence
         return expectedSum - actualSum;
     }
 
