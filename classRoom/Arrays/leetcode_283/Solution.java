@@ -1,4 +1,4 @@
-package leetcode.Arrays2.leetcode_283;
+package classRoom.Arrays.leetcode_283;
 
 /**
  * 

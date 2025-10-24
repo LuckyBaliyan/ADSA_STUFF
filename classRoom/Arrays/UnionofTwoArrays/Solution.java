@@ -1,4 +1,4 @@
-package leetcode.Arrays2.UnionofTwoArrays;
+package classRoom.Arrays.UnionofTwoArrays;
 
 import java.util.Arrays;
 import java.util.HashSet;
