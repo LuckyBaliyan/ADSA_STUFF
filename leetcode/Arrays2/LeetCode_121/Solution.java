@@ -1,4 +1,4 @@
-package classRoom.Arrays.LeetCode_121;
+package leetcode.Arrays2.LeetCode_121;
 
 /**
  * Best Timw to buy and sell a stock
