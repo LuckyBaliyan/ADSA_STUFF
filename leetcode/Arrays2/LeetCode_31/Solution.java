@@ -1,4 +1,4 @@
-package classRoom.Arrays.LeetCode_31;
+package leetcode.Arrays2.LeetCode_31;
 
 /**
  * 31. Next Permutation

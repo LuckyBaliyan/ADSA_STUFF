@@ -1,7 +1,6 @@
-package classRoom.Arrays.LeetCode_128;
+package leetcode.Arrays2.LeetCode_128;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
 
 public class Solution {
