@@ -1,4 +1,4 @@
-package leetcode.Arrays2.LeetCode_560;
+package classRoom.prefixSum.LeetCode_560;
 
 import java.util.HashMap;
 
