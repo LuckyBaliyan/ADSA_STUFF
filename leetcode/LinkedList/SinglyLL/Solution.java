@@ -61,5 +61,9 @@ public class Solution {
         }
 
         list.logList();
+
+        int deletedNode = list.deleteNode();
+        System.out.println(deletedNode);
+        //lOG the list 
     }
 }
