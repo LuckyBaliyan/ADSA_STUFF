@@ -46,9 +46,34 @@ public class Solution {
         return res;
     }
 
+
+    //Optimal Approach and most easy
+    static ArrayList<ArrayList<Integer>> pascleTriangleOptimal(int numRows){
+        ArrayList<ArrayList<Integer>> list = new ArrayList<>();
+
+        if(numRows == 0) return list;
+
+        list.add(new ArrayList<>());
+        list.get(0).add(1);
+
+        for(int i = 1;i<numRows;i++){
+            ArrayList<Integer> curr = new ArrayList<>();
+            curr.add(1);
+            for(int j = 1;j<i;j++){
+              curr.add(list.get(i-1).get(j-1) + list.get(i-1).get(j));
+            }
+
+            curr.add(1);
+            list.add(curr);
+        }
+
+        return list;
+    }
     public static void main(String[] args) {
         ArrayList<ArrayList<Integer>> res = pascleTriangle(5);
-
         System.out.println(res);
+
+        ArrayList<ArrayList<Integer>> res2 = pascleTriangleOptimal(6);
+        System.out.println(res2);
     }
 }
