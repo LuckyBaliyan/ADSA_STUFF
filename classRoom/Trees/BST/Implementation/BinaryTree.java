@@ -99,7 +99,6 @@ public class BinaryTree {
     }
 
     //Trvaersal algos (DFS)
-
     void inOrder(Node node){
         if(node == null) return;
 
