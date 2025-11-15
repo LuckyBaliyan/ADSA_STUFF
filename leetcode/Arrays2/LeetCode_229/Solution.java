@@ -1,4 +1,4 @@
-package classRoom.Arrays.LeetCode_229;
+package leetcode.Arrays2.LeetCode_229;
 
 import java.util.ArrayList;
 import java.util.HashMap;

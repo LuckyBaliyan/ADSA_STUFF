@@ -1,4 +1,4 @@
-package classRoom.Arrays.LeetCode_15;
+package leetcode.Arrays2.LeetCode_15;
 /**
  * 
 3 SUM
