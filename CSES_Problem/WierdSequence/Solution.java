@@ -1,4 +1,4 @@
-package CodeForces.Recursion.CSES_Problem.WierdSequence;
+package CSES_Problem.WierdSequence;
 
 public class Solution {
     static void  giveSequence(long n){
