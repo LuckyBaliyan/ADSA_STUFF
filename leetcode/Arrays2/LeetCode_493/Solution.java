@@ -65,6 +65,6 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-       System.out.println(reversePairs(new int [] {40,25,19,12,9,6,2}));
+       System.out.println(reversePairs(new int [] {40,25,19,12,9,6,2})); // 18
     }
 }
