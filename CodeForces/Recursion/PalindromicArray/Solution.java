@@ -4,7 +4,7 @@ public class Solution {
     static boolean isPalindromic(int [] nums,int n,int left,int right){
         if(n == 1) return true;
 
-        if(left == right) return true;
+        if(left >= right) return true;
 
         if(nums[left] != nums[right]) return false;
         return isPalindromic(nums, n, left+1, right-1);
