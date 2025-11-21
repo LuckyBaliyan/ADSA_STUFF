@@ -2,8 +2,6 @@ package leetcode.Arrays2.LeetCode_2965;
 
 import java.util.HashMap;
 
-import org.xml.sax.HandlerBase;
-
 /*
 2965. Find Missing and Repeated Values
 Solved
@@ -41,6 +39,27 @@ For all x that 1 <= x <= n * n except two of them there is exactly one pair of i
 
 public class Solution {
 
+    static int[] findMissingandRepeatingBrute(int [][] grid){
+        int n = grid.length;
+        int missing = 0;
+        int twice = 0;
+
+        for(int i = 1;i<=n*n;i++){
+          int count = 0;
+          for(int j = 0;j<n;j++){
+            for(int k = 0;k<n;k++){
+                int num = grid[j][k];
+                if(num == i)count++;
+            }
+          }
+
+          if(count == 2)twice = i;
+          if(count  == 0)missing = i;
+        }
+
+        return new int[] {twice,missing};
+    }
+
     static int[] findMissingandRepeating(int [][] grid){
         int n = grid.length;
         HashMap<Integer,Integer> map = new HashMap<>();
@@ -72,6 +91,13 @@ public class Solution {
         int [] ans = findMissingandRepeating(grid);
 
         for (int i : ans) {
+            System.out.print(i+" ");
+        }
+
+        System.out.println();
+
+        int [] ans2 = findMissingandRepeatingBrute(grid);
+        for (int i : ans2) {
             System.out.print(i+" ");
         }
     }
