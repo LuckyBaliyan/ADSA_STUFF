@@ -5,7 +5,6 @@ import java.util.HashSet;
 
 class Solution {
     public static ArrayList<String> findPermutation(String s) {
-        // Code here
         HashSet<String> st = new HashSet<>();
         solve(s,"",st);
         return new ArrayList<>(st);
@@ -20,6 +19,7 @@ class Solution {
         for(int i = 0;i<s.length();i++){
             char ch = s.charAt(i);
             String rem = s.substring(0,i)+s.substring(i+1);
+            //Carefully check the String extraction Methods 
             
             solve(rem,curr + ch,st);
         }
