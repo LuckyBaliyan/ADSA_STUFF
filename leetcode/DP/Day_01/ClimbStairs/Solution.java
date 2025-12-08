@@ -54,9 +54,7 @@ public class Solution {
         System.out.println(climbStairsRec2(4));
 
         System.out.println(climbStairsMemo(4, new int [] {-1,-1,-1,-1,-1}));
-
         System.out.println(climbStairsTab(4, new int [] {-1,-1,-1,-1,-1}));
-
         System.out.println(climbStairsSpaceOptimzedDp(4));
     }
 }
