@@ -26,12 +26,12 @@ public class solution {
       }
 
       for(int i = 1;i<N;i++){
-         int take = 0;
          for(int j = 1;j<=W;j++){
+            int take = 0;
             if(j>= weights[i]){
                take = dp[i-1][j - weights[i]]+values[i];
             }
-            int notTake = dp[i-1][W];
+            int notTake = dp[i-1][j];
             dp[i][j] = Math.max(take,notTake);
          }
       }
@@ -73,7 +73,17 @@ public class solution {
      }
 
      System.out.println(d_KnapSack(weights, values, N, W));
+
+     6 15
+     6 5
+     5 6
+     6 4
+     6 6
+     3 5
+     7 2
+
+
    */
-     System.out.println(d_KnapSack(new int [] {3,4,5}, new int [] {30,50,60}, 3, 8));
+     System.out.println(d_KnapSack(new int [] {6,5,6,6,3,7}, new int [] {5,6,4,6,5,2}, 6, 15));
    }
 }
