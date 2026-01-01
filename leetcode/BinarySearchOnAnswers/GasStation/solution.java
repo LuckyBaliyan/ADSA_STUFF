@@ -90,7 +90,7 @@ public class solution {
             numbersBtween--;
            }
 
-           cnt += (int) numbersBtween;
+           cnt += numbersBtween;
         }
         return cnt;
     }
