@@ -1,6 +1,6 @@
-//package CSES_Problem.dp.Removing_Digits;
+package CSES_Problem.dp.Removing_Digits;
 
-//import java.util.Arrays;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
