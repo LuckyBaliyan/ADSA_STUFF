@@ -10,8 +10,10 @@ public class Main {
 
        while (l<=h) {
         int mid = l + (h - l)/2;
-        ans = mid;
-        if(helper(arr,mid,k)) h = mid - 1;
+        if(helper(arr,mid,k)){
+            h = mid - 1;
+            ans = mid;
+        }
         else l = mid + 1;
        }
 
