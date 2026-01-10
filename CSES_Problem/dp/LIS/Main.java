@@ -5,6 +5,10 @@ import java.io.InputStreamReader;
 //import java.util.Scanner;
 import java.util.StringTokenizer;
 
+
+//Its is going Out of memeory in CSES constarits because its passing the dp[][] array limit of 
+// java for big values so the most opimal approach of binarySearch + dp will works here
+
 public class Main {
     public static long getLis(long [] arr){
         int n = arr.length;
