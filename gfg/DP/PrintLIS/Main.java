@@ -16,19 +16,24 @@ public class Main {
         
         int n = arr.length;
         
-        int [][] dp = new int [n+1][n+1];
+        //int [][] dp = new int [n+1][n+1];
+
+        int [] curr = new int [n+1];
+        int [] next =  new int [n+1];
         
         for(int i = n-1;i>=0;i--){
             for(int prev = -1;prev <= i- 1;prev++){
                 int take = 0;
                 if(prev == -1 || arr[i] > arr[prev]){
-                    take = 1 + dp[i+1][i+1];
+                    take = 1 + next[i+1];
                     
                 }
                 
-                int notTake = dp[i+1][prev + 1];
-                dp[i][prev+1] = Math.max(take,notTake);
+                int notTake = next[prev + 1];
+                curr[prev+1] = Math.max(take,notTake);
             }
+
+            next = curr.clone();
         }   
 
         /* 
@@ -44,7 +49,7 @@ public class Main {
         int prev = -1;
         for(int i = 0;i<n;i++){
             if(prev == -1 || arr[i] > arr[prev]){
-                if(dp[i+1][i+1]+1 == dp[i][prev+1]){
+                if(next[i+1]+1 == next[prev+1]){
                     res.add(arr[i]);
                     prev = i;
                 }
