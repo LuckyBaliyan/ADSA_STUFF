@@ -10,6 +10,48 @@ import java.util.StringTokenizer;
 // java for big values so the most opimal approach of binarySearch + dp will works here
 
 public class Main {
+    public static int lisOptimal(long [] arr){
+        int n = arr.length;
+        long [] dp = new long[n];
+        
+
+        dp[0] = arr[0]; 
+        //first element has to be there if we intented to find the greates length
+
+        int len = 1; 
+
+        for(int i = 1;i<n;i++){
+            if(arr[i] > dp[len - 1]){
+                dp[len] = arr[i];
+                len++;
+            }
+            else{
+                int idx = lb(0,len - 1,arr[i],dp);
+                dp[idx] = arr[i];
+            }
+        }
+
+        return len;
+
+    }
+
+    public static int lb(int l,int h,long elem,long [] dp){
+        int res = 0;
+
+        while (l<=h) {
+            int mid = l + (h - l)/2;
+
+            if(dp[mid] >= elem){
+                res = mid;
+                h = mid - 1;
+            }
+            else l = mid + 1;
+        }
+
+        return res;
+    }
+
+
     public static long getLis(long [] arr){
         int n = arr.length;
 
@@ -42,6 +84,6 @@ public class Main {
             arr[i] = Long.parseLong(st.nextToken());
         }
 
-        System.out.println(getLis(arr));
+        System.out.println(lisOptimal(arr));
     }
 }
