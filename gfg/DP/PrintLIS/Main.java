@@ -36,15 +36,13 @@ public class Main {
             next = curr.clone();
         }   
 
-        /* 
-        for(int i = 0;i<n;i++){
-            for(int j = 0;j<n+1;j++){
-                System.out.print(dp[i][j]+" ");
-            }
-
-            System.out.println();
+        
+       /*  for(int i = 0;i<n;i++){
+            System.out.print(next[i]+" ");
         }
         */
+    
+        //System.out.println();
 
         int prev = -1;
         for(int i = 0;i<n;i++){
