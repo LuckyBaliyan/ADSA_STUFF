@@ -27,6 +27,8 @@ public class Solution {
             adj.get(v).add(u);
         }
 
+        System.out.println("Final Adjacency List:");
+
         for(int i = 0;i<=V;i++){
             System.out.print(i+"-->");
             for(int node: adj.get(i))System.out.print(node+" ");
