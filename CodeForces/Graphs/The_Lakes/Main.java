@@ -1,4 +1,4 @@
-//package CodeForces.Graphs.The_Lakes;
+package CodeForces.Graphs.The_Lakes;
 
 import java.util.ArrayDeque;
 import java.util.Queue;

@@ -1,4 +1,4 @@
-package CodeForces.Graphs.Ice_Skating;
+
 
 import java.util.Scanner;
 
