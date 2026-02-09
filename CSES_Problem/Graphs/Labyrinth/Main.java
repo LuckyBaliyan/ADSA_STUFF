@@ -1,4 +1,4 @@
-package CSES_Problem.Graphs.Labyrinth;
+//package CSES_Problem.Graphs.Labyrinth;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -19,15 +19,33 @@ public class Main {
         }
     }
 
-    public static String getPath(Pair start,Pair end,Pair Parent){
+    public static String getPath(Pair start,Pair end,Pair[][] parent){
         ArrayList<Pair> path = new ArrayList<>();
-        path.add(end);
+        StringBuilder sb = new StringBuilder();
 
-        int x1 = end.x;
-        int y1 = end.y;
+        Pair curr = end;
+        path.add(curr);
 
+        while(!(curr.x == start.x && curr.y == start.y)){
+            curr = parent[curr.x][curr.y];
+            path.add(curr);
+        }
 
+        //Collections.reverse(path);
 
+        for(int i = path.size()-1;i > 0;i--){
+            Pair a = path.get(i);
+            Pair next = path.get(i-1);
+
+            if(a.x == next.x+1)sb.append("U");
+            if(a.x == next.x - 1)sb.append("D");
+            if(a.y == next.y + 1)sb.append("L");
+            if(a.y == next.y - 1)sb.append("R");
+        }
+
+        //sb.reverse();
+
+        return sb.toString();
     }
 
     public static boolean bfs(char [][] grid,int n,int m,int sr,int sc,boolean [][] visited,
@@ -46,15 +64,15 @@ public class Main {
                 int nr = x + dr[i];
                 int nc = y + dc[i];
 
-                if(nr < 0 || nr >= n || nc < 0 || nc > m || visited[nr][nc] ||
+                if(nr < 0 || nr >= n || nc < 0 || nc >= m || visited[nr][nc] ||
                     grid[nr][nc] == '#'
                 )continue;
-
-                if(grid[nr][nc] == 'B')return true;
 
                 q.offer(new Pair(nr, nc));
                 visited[nr][nc] = true;
                 Parent[nr][nc] = new Pair(x, y);
+
+                if(grid[nr][nc] == 'B')return true;
             }
         }
 
@@ -73,12 +91,12 @@ public class Main {
         int sr = -1;
         int sy = -1;
 
-        Pair start;
+        Pair start = new Pair(-1,-1);
 
         int ex = -1;
         int ey = -1;
 
-        Pair end;
+        Pair end = new Pair(ex, ey);
 
         for(int i= 0;i<n;i++){
             String s = sc.next();
@@ -87,7 +105,7 @@ public class Main {
                 if(grid[i][j] == 'A'){
                     sr = i;
                     sy = j;
-                    start = new Pair(sr, sy);
+                    start = new Pair(sr,sy);
                 }
                 else if(grid[i][j] == 'B'){
                     ex = i;
@@ -100,6 +118,12 @@ public class Main {
         Pair [][] Parent = new Pair[n][m];
 
         boolean found = bfs(grid,n,m,sr,sy,visited,Parent,q);
-        System.out.println(found?"Yes":"No");
+        System.out.println(found?"YES":"NO");
+
+        if(!found)return;
+
+        String path = getPath(start, end, Parent);
+        System.out.println(path.length());
+        System.out.println(path);
     }
 }
