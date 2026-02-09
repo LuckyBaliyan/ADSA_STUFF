@@ -1,4 +1,4 @@
-//package CSES_Problem.Graphs.Labyrinth;
+package CSES_Problem.Graphs.Labyrinth;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
