@@ -45,6 +45,7 @@ public class Main {
 
     }
     public static void main(String[] args) {
+        //Asumming given graph is DAG (Directed Acyclic Graph)
         topologicalSort(6,6,new int [][] {{1,3},{2,3},{4,1},{4,0},{5,0},{5,2}});
     }
 }
