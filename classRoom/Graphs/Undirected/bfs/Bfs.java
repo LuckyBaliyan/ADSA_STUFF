@@ -1,4 +1,4 @@
-package classRoom.Graphs.bfs;
+package classRoom.Graphs.Undirected.bfs;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

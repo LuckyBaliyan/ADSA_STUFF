@@ -1,10 +1,10 @@
-//package CSES_Problem.Graphs.BitMap;
+package CSES_Problem.Graphs.BitMap;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayDeque;
 import java.util.Queue;
-import java.util.Scanner;
+
 
 public class Main {
     static int [] dr = {-1,1,0,0};

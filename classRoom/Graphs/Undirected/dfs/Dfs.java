@@ -1,4 +1,4 @@
-package classRoom.Graphs.dfs;
+package classRoom.Graphs.Undirected.dfs;
 
 import java.util.ArrayList;
 
