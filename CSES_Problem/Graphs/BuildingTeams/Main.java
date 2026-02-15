@@ -1,4 +1,4 @@
-//package CSES_Problem.Graphs.BuildingTeams;
+package CSES_Problem.Graphs.BuildingTeams;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
