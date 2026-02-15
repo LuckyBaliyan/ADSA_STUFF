@@ -1,11 +1,12 @@
-package CSES_Problem.Graphs.RoundingTrip1;
+package CSES_Problem.dP_on_graphs.LongestFightRoutes;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
-
+import java.util.Queue;
 
 public class Main {
-    public static ArrayList<Integer> res;
     static class FastScanner {
     private final byte[] buffer = new byte[1 << 16]; // 64 KB
     private int ptr = 0, len = 0;
@@ -49,69 +50,74 @@ public class Main {
 
         ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
 
-        for(int i =0;i<=n;i++){
+        for(int i = 0;i<=n;i++){
             adj.add(new ArrayList<>());
         }
 
-        for(int i =0;i<m;i++){
+        for(int i = 0;i<m;i++){
             int u = fc.nextInt();
             int v = fc.nextInt();
 
             adj.get(u).add(v);
-            adj.get(v).add(u);
         }
 
-        boolean [] visited = new boolean[n+1];
-        int [] parent = new int [n+1];
-        res = new ArrayList<>();
-
-        boolean found = false;
+        ArrayList<Integer> topo = new ArrayList<>();
+        int [] inDegree = new int [n+1];
+        int [] path = new int[n+1];
 
         for(int i = 1;i<=n;i++){
-            if(!visited[i]){
-                if(dfs(i,-1,visited,parent,adj)){
-                    found = true;
-                    break;
+            for(int ne:adj.get(i))inDegree[ne]++;
+        }
+
+        Queue<Integer> q = new ArrayDeque<>();
+
+        for(int i =1;i<=n;i++){
+            if(inDegree[i] == 0)q.offer(i);
+        }
+
+        while(!q.isEmpty()){
+            int curr = q.poll();
+            topo.add(curr);
+
+            for(int ne:adj.get(curr)){
+                inDegree[ne]--;
+                if(inDegree[ne] == 0)q.offer(ne);
+            }
+        }
+
+        int [] dp = new int [n+1];
+        Arrays.fill(dp,-1);
+        dp[1] = 1;
+
+        for(int u:topo){
+            if(dp[u] == -1)continue;
+
+            for(int v:adj.get(u)){
+                if(dp[u] + 1 > dp[v]){
+                    dp[v] = dp[u] + 1;
+                    path[v] = u;
                 }
             }
         }
 
-        if(!found){
+        if(dp[n] == -1){
             System.out.println("IMPOSSIBLE");
             return;
         }
 
-        System.out.println(res.size());
+        ArrayList<Integer> res = new ArrayList<>();
+        int curr = n;
 
-        for(int city:res)System.out.print(city+" ");
-    }
-
-    public static boolean dfs(int node,int p,boolean [] visited,int [] parent,
-    ArrayList<ArrayList<Integer>> adj
-    ){
-        visited[node] = true;
-
-        for(int ne:adj.get(node)){
-          if(!visited[ne]){
-            parent[ne] = node;
-            if(dfs(ne, node, visited, parent, adj))return true;
-          }
-          else if(ne != p){
-
-             int curr = node;
-             res.add(ne);
-
-
-             while(curr != ne){
-                res.add(curr);
-                curr = parent[curr];
-             }
-
-             res.add(ne);
-             Collections.reverse(res);
-             return true;
-          }
+        while(curr != 0){
+            res.add(curr);
+            curr = path[curr];
         }
-        return false;
+
+        Collections.reverse(res);
+
+
+        System.out.println(dp[n]);
+        for(int city:res)System.out.print(city+" ");
+
     }
 }
