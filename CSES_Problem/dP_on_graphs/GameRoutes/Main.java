@@ -1,4 +1,4 @@
-//package CSES_Problem.Graphs.GameRoutes;
+package CSES_Problem.dP_on_graphs.GameRoutes;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

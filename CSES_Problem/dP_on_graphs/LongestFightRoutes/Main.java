@@ -1,4 +1,4 @@
-package CSES_Problem.dP_on_graphs.LongestFightRoutes;
+//package CSES_Problem.dP_on_graphs.LongestFightRoutes;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -61,9 +61,12 @@ public class Main {
             adj.get(u).add(v);
         }
 
-        ArrayList<Integer> topo = new ArrayList<>();
+        int [] topo = new int [n+1];
         int [] inDegree = new int [n+1];
-        int [] path = new int[n+1];
+        int [] dp = new int[n+1];
+
+        Arrays.fill(dp,-1);
+        dp[1] = 1;
 
         for(int i = 1;i<=n;i++){
             for(int ne:adj.get(i))inDegree[ne]++;
@@ -77,25 +80,17 @@ public class Main {
 
         while(!q.isEmpty()){
             int curr = q.poll();
-            topo.add(curr);
 
             for(int ne:adj.get(curr)){
+
+                if(dp[curr] != -1 && dp[ne] < dp[curr]+1){
+                    dp[ne] = dp[curr]+1;
+                    topo[ne] = curr;
+                }
+
                 inDegree[ne]--;
-                if(inDegree[ne] == 0)q.offer(ne);
-            }
-        }
-
-        int [] dp = new int [n+1];
-        Arrays.fill(dp,-1);
-        dp[1] = 1;
-
-        for(int u:topo){
-            if(dp[u] == -1)continue;
-
-            for(int v:adj.get(u)){
-                if(dp[u] + 1 > dp[v]){
-                    dp[v] = dp[u] + 1;
-                    path[v] = u;
+                if(inDegree[ne] == 0){
+                    q.offer(ne);
                 }
             }
         }
@@ -105,18 +100,17 @@ public class Main {
             return;
         }
 
+        System.out.println(dp[n]);
+
         ArrayList<Integer> res = new ArrayList<>();
         int curr = n;
 
         while(curr != 0){
             res.add(curr);
-            curr = path[curr];
+            curr = topo[curr];
         }
 
         Collections.reverse(res);
-
-
-        System.out.println(dp[n]);
         for(int city:res)System.out.print(city+" ");
 
     }
