@@ -1,4 +1,4 @@
-//package CSES_Problem.dP_on_graphs.LongestFightRoutes;
+package CSES_Problem.dP_on_graphs.LongestFightRoutes;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
