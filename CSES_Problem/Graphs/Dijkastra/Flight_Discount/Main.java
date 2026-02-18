@@ -1,4 +1,4 @@
-//package CSES_Problem.Graphs.Dijkastra.Flight_Discount;
+package CSES_Problem.Graphs.Dijkastra.Flight_Discount;
 
 import java.util.ArrayList;
 import java.util.Arrays;
