@@ -59,7 +59,7 @@ class Solution {
 
     public static void main(String[] args) {
         int [][] ans = swimInWater(new int [][] {{0,1,2,3,4},{24,23,22,21,5},
-            {12,13,14,15,16},{11,17,18,19,20},{10,9,8,7,6}});
+            {12,13,14,15,16},{11,17,18,19,21},{10,9,8,7,6}});
 
         for(int i = 0;i<ans.length;i++){
             for(int j = 0;j<ans.length;j++){
