@@ -1,3 +1,4 @@
+package CodeForces.Graphs.Party;
 
 import java.util.ArrayList;
 import java.util.Scanner;
