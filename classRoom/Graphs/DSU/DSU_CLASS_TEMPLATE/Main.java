@@ -18,7 +18,7 @@ public class Main {
             }
         }
 
-        public  void union(int u,int v){
+        public  void unionByRanks(int u,int v){
             int p_u = find(u);
             int p_v = find(v);
 
@@ -56,18 +56,18 @@ public class Main {
 
         DSU ds = new DSU(n);
 
-        ds.union(1, 2);
-        ds.union(2, 3);
-        ds.union(3, 7);
+        ds.unionByRanks(1, 2);
+        ds.unionByRanks(2, 3);
+        ds.unionByRanks(3, 7);
         System.out.println("Disconnected Components at level 3:"+ ds.components);
         if(ds.find(1) == ds.find(3))// not better way if(ds.parent[1] == ds.parent[3])
         System.out.println("1 & 3 belongs to same component at lvl3");
         else System.out.println("1 & 3 are not in same components at lvl3");
-        ds.union(2, 3);
-        ds.union(4, 5);
-        ds.union(6, 7);
-        ds.union(5, 6);
-        ds.union(3, 7);
+        ds.unionByRanks(2, 3);
+        ds.unionByRanks(4, 5);
+        ds.unionByRanks(6, 7);
+        ds.unionByRanks(5, 6);
+        ds.unionByRanks(3, 7);
 
         System.out.println("connected Components:"+ ds.components);
         for(int i: ds.parent)System.out.print(i +" ");
