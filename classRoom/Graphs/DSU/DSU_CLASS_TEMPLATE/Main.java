@@ -1,5 +1,6 @@
 package classRoom.Graphs.DSU.DSU_CLASS_TEMPLATE;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -7,15 +8,36 @@ public class Main {
         public int components;
         public int [] parent;
         public int [] rank;
+        public int [] size;
 
         public DSU(int n){
             components = n;
             parent = new int [n+1];
             rank = new int [n+1];
-
+            size = new int [n+1];
+            Arrays.fill(size,1);
+            
             for(int i = 0;i<=n;i++){
                 parent[i] = i;
             }
+        }
+
+        public void unionBySize(int u,int v){
+            int p_u = find(u);
+            int p_v = find(v);
+
+            if(p_u == p_v)return;
+
+            if(size[p_u] < size[p_v]){
+                parent[p_u] = p_v;
+                size[p_v] += size[p_u];
+            }
+            else{
+                parent[p_v] = p_u;
+                size[p_u] += size[p_v];
+            }
+
+            components--;
         }
 
         public  void unionByRanks(int u,int v){
@@ -56,18 +78,18 @@ public class Main {
 
         DSU ds = new DSU(n);
 
-        ds.unionByRanks(1, 2);
-        ds.unionByRanks(2, 3);
-        ds.unionByRanks(3, 7);
+        ds.unionBySize(1, 2);
+        ds.unionBySize(2, 3);
+        ds.unionBySize(3, 7);
         System.out.println("Disconnected Components at level 3:"+ ds.components);
         if(ds.find(1) == ds.find(3))// not better way if(ds.parent[1] == ds.parent[3])
         System.out.println("1 & 3 belongs to same component at lvl3");
         else System.out.println("1 & 3 are not in same components at lvl3");
-        ds.unionByRanks(2, 3);
-        ds.unionByRanks(4, 5);
-        ds.unionByRanks(6, 7);
-        ds.unionByRanks(5, 6);
-        ds.unionByRanks(3, 7);
+        ds.unionBySize(2, 3);
+        ds.unionBySize(4, 5);
+        ds.unionBySize(6, 7);
+        ds.unionBySize(5, 6);
+        ds.unionBySize(3, 7);
 
         System.out.println("connected Components:"+ ds.components);
         for(int i: ds.parent)System.out.print(i +" ");
