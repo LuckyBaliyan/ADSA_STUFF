@@ -1,4 +1,4 @@
-//package CodeForces.Graphs.Jizzhu_And_Cities;
+package CodeForces.Graphs.Jizzhu_And_Cities;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -66,7 +66,6 @@ public class Main {
             Tuple route = pq.poll();
             int node = route.node;
             long cost = route.cost;
-            boolean isTrain = route.isTrain;
 
             if(cost > costArr[node])continue;
 
