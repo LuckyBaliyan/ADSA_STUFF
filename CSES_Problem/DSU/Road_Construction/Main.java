@@ -1,4 +1,4 @@
-//package CSES_Problem.DSU.Road_Construction;
+package CSES_Problem.DSU.Road_Construction;
 
 public class Main {
 
