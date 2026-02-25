@@ -44,7 +44,7 @@ public class Main {
     Queue<Pair> q = new LinkedList<>();
 
     for(int i = 0; i < n; i++){
-        String s = br.readLine();   // read full row
+        String s = br.readLine();
 
         for(int j = 0; j < m; j++){
             map[i][j] = s.charAt(j);
