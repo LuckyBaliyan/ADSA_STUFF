@@ -1,4 +1,4 @@
-package infosys_HackwithInfy.Graphs;
+package infosys_HackwithInfy.Graphs.General_Ali_Army;
 
 import java.util.*;
 
