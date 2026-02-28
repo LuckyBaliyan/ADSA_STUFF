@@ -1,4 +1,4 @@
-//package CodeForces.Graphs.E_CycleComponents;
+package CodeForces.Graphs.E_CycleComponents;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -54,6 +54,5 @@ public class Main {
         }
 
         System.out.println(cyclicComponents);
-
     }
 }
