@@ -1,11 +1,11 @@
-//package CodeForces.Graphs.C_NewsDistribution;
+package CodeForces.Graphs.C_NewsDistribution;
 
 import java.util.Scanner;
 
 public class Main {
     static int [] par;
     static int [] size;
-    static int [] count;
+    //static int [] count;
 
     public static int find(int x){
         if(x == par[x])return x;
@@ -34,7 +34,7 @@ public class Main {
         int m = sc.nextInt();
 
         par = new int[n+1];
-        count = new int [n+1];
+        //count = new int [n+1];
         size = new int [n+1];
 
         for(int i = 0;i<=n;i++){
