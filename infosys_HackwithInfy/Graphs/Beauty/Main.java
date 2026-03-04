@@ -25,6 +25,7 @@ public class Main {
             size[pu] += size[pv];
             adj[pu] += adj[pv];
 
+             //if  u & v are adjacent elements 
             if (Math.abs(u - v) == 1)
                 adj[pu]++;
 
@@ -33,6 +34,7 @@ public class Main {
             size[pv] += size[pu];
             adj[pv] += adj[pu];
 
+            //if  u & v are adjacent elements 
             if (Math.abs(u - v) == 1)
                 adj[pv]++;
         }
@@ -44,7 +46,7 @@ public class Main {
 
         int n = Integer.parseInt(br.readLine().trim());
         int q = Integer.parseInt(br.readLine().trim());
-        int t = Integer.parseInt(br.readLine().trim());
+        //int t = Integer.parseInt(br.readLine().trim());
 
         par = new int[n + 1];
         size = new int[n + 1];
@@ -56,6 +58,7 @@ public class Main {
             adj[i] = 0;
         }
 
+        //Initially beauty is zero beacuse if query hav't ask for type 2 
         long beauty = 0;
 
         for (int i = 0; i < q; i++) {
@@ -65,10 +68,16 @@ public class Main {
             if (type == 1) {
                 int a = Integer.parseInt(st.nextToken());
                 int b = Integer.parseInt(st.nextToken());
+
+                //perform dsu union for query:- (1,a,b)
                 union(a, b);
             } else {
                 int u = Integer.parseInt(st.nextToken());
                 int root = find(u);
+
+                //find beauty fro query:- (2,u,0)
+                // beauty is defined for a source u is it's comp size - adjacents 
+                // elements to it.
                 beauty += size[root] - adj[root];
             }
         }
