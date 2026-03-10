@@ -1,4 +1,4 @@
-//package CSES_Problem.RangeQueries.staticRangeSum;
+package CSES_Problem.RangeQueries.staticRangeSum;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
