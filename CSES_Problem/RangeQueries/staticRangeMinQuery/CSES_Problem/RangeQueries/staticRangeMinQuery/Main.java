@@ -1,4 +1,4 @@
-//package CSES_Problem.RangeQueries.staticRangeMinQuery;
+package CSES_Problem.RangeQueries.staticRangeMinQuery;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
