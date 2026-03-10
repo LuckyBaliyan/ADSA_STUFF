@@ -3,6 +3,7 @@ package RangeQueries.Concepts.SegmentTree;
 public class Main {
     static long [] seg;
     static long [] arr = {10,20,30,40,50,60};
+
     public static void build_st(int indx,int l,int r){
         //base case;
         if(l == r){
@@ -32,6 +33,32 @@ public class Main {
         long right = sumQuery(ql, qr, 2*idx+2, mid+1, r);
 
         return left + right;
+    }
+
+    public static void updateQuery(int qi,long val,int idx,int l,int r){
+
+        //base case 
+        if(l == qi){
+          //change the actual vlaue in array
+          arr[l] = val;
+          //change the sum in segment tree node
+          seg[idx] = val;
+          return;
+        }
+
+        int mid = l + (r - l)/2;
+
+        //if qi is smaller than mid go left side
+        if(qi >= l && qi <= mid){
+           updateQuery(qi, val, 2*idx + 1, l, mid);
+        }
+        //go to right otherwise
+        else{
+            updateQuery(qi, val, 2*idx+2, mid + 1, r);
+        }
+
+        //update the subtree accordingly when a single node is change
+        seg[qi] = seg[2*idx+1] + seg[2*idx+2];
     }
     public static void main(String[] args) {
         int n = 6;
