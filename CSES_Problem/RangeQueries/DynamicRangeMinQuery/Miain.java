@@ -1,11 +1,45 @@
-//package CSES_Problem.RangeQueries.DynamicRangeMinQuery;
+package CSES_Problem.RangeQueries.DynamicRangeMinQuery;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class Miain {
-     static long [] arr;
+    static long [] arr;
+
+
+    static class FastScanner {
+    BufferedReader br;
+    StringTokenizer st;
+
+    FastScanner() {
+        br = new BufferedReader(new InputStreamReader(System.in));
+    }
+
+    String next() throws IOException {
+        while (st == null || !st.hasMoreTokens()) {
+            st = new StringTokenizer(br.readLine());
+        }
+        return st.nextToken();
+    }
+
+    int nextInt() throws IOException {
+        return Integer.parseInt(next());
+    }
+
+    long nextLong() throws IOException {
+        return Long.parseLong(next());
+    }
+
+    double nextDouble() throws IOException {
+        return Double.parseDouble(next());
+    }
+
+    String nextLine() throws IOException {
+        return br.readLine();
+    }
+}
 
     static class SegmentTree{
         public long [] seg;
@@ -61,15 +95,17 @@ public class Miain {
         }
     }
     public static void main(String[] args)  throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
+       // BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+       // StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int n = Integer.parseInt(st.nextToken());
-        int q = Integer.parseInt(st.nextToken());
+       FastScanner sc = new FastScanner();
 
-        st = new StringTokenizer(br.readLine());
+        int n = sc.nextInt();
+        int q = sc.nextInt();
+
+        //st = new StringTokenizer(br.readLine());
         arr = new long[n+1];
-        for(int i = 1;i<=n;i++)arr[i] = Long.parseLong(st.nextToken());
+        for(int i = 1;i<=n;i++)arr[i] = sc.nextLong();
 
         SegmentTree sg = new SegmentTree(arr);
         sg.build_st(1, 1, n);
@@ -77,19 +113,19 @@ public class Miain {
         StringBuilder sb = new StringBuilder();
 
         while(q-->0){
-            st = new StringTokenizer(br.readLine());
+            //st = new StringTokenizer(br.readLine());
 
-            int type = Integer.parseInt(st.nextToken());
+            int type = sc.nextInt();
 
             if(type == 1){
-                int k = Integer.parseInt(st.nextToken());
-                long u = Long.parseLong(st.nextToken());
+                int k = sc.nextInt();
+                long u = sc.nextLong();
 
                 sg.updateQuery(k, u, 1, 1, n);
             }
             else{
-                int a = Integer.parseInt(st.nextToken());
-                int b = Integer.parseInt(st.nextToken());
+                int a = sc.nextInt();
+                int b = sc.nextInt();
 
                 sb.append(sg.minQuery(a, b, 1, 1, n)+"\n");
             }
