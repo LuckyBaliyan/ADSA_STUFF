@@ -1,4 +1,4 @@
-//package CodeForces.SegmentTrees.C_noOfMin_in_a_Segment;
+package CodeForces.SegmentTrees.C_noOfMin_in_a_Segment;
 
 import java.util.Scanner;
 
