@@ -1,4 +1,4 @@
-//package CSES_Problem.RangeQueries.DynamicUpdateQuery;
+package CSES_Problem.RangeQueries.DynamicUpdateQuery;
 
 import java.io.BufferedReader;
 import java.io.IOException;
