@@ -1,4 +1,4 @@
-//package CSES_Problem.RangeQueries.XorSumQueries;
+package CSES_Problem.RangeQueries.XorSumQueries;
 
 import java.io.BufferedReader;
 import java.io.IOException;
