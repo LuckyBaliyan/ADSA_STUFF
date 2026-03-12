@@ -1,4 +1,4 @@
-//package CodeForces.SegmentTrees.D_DistinctCharacter_Queries;
+package CodeForces.SegmentTrees.D_DistinctCharacter_Queries;
 
 import java.util.Scanner;
 
