@@ -1,4 +1,4 @@
-//package CSES_Problem.RangeQueries.RangeUpdateQuery;
+package CSES_Problem.RangeQueries.RangeUpdateQuery;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -75,7 +75,7 @@ public class Main {
         if(r < ql || l > qr)return;
         if(ql <= l && r <= qr){
           lazy[idx] += val;
-          //push(idx,l,r);
+          push(idx,l,r);
           return;
         }
 
