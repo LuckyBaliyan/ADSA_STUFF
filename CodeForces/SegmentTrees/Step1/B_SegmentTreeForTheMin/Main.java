@@ -1,4 +1,4 @@
-//package CodeForces.SegmentTrees.Step1.B_SegmentTreeForTheMin;
+package CodeForces.SegmentTrees.Step1.B_SegmentTreeForTheMin;
 
 import java.util.Scanner;
 
