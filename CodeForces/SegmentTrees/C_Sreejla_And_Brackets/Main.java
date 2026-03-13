@@ -1,4 +1,4 @@
-//package CodeForces.SegmentTrees.C_Sreejla_And_Brackets;
+package CodeForces.SegmentTrees.C_Sreejla_And_Brackets;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

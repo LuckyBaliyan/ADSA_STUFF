@@ -1,25 +1,18 @@
-package CSES_Problem.RangeQueries.RangeUpdateQuery;
+//package CSES_Problem.RangeQueries.RangeUpdateQuery;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.io.*;
+import java.util.*;
 
-public class Main {
-    static long [] arr;
-    static long [] seg;
-    static long [] lazy;
-
-    static class FastScanner {
+class FastScanner {
     BufferedReader br;
     StringTokenizer st;
 
-    FastScanner() {
+    public FastScanner() {
         br = new BufferedReader(new InputStreamReader(System.in));
     }
 
     String next() throws IOException {
-        while (st == null || !st.hasMoreTokens()) {
+        while (st == null || !st.hasMoreElements()) {
             st = new StringTokenizer(br.readLine());
         }
         return st.nextToken();
@@ -33,105 +26,98 @@ public class Main {
         return Long.parseLong(next());
     }
 
-    double nextDouble() throws IOException {
-        return Double.parseDouble(next());
-    }
-
     String nextLine() throws IOException {
         return br.readLine();
     }
 }
 
-    public static void build_st(int idx,int l,int r){
-        if(l==r){
-            seg[idx] = arr[l];
+public class Main {
+    static int[] arr;
+    static long[] st;
+    static long[] lazy;
+    public static void build(int i, int l, int r) {
+        if (l == r) {
+            st[i] = arr[l];
             return;
         }
-
-        int mid = (l+r)/2;
-
-        build_st(2*idx, l, mid);
-        build_st(2*idx+1, mid+1, r);
-
-        seg[idx] = seg[2*idx] + seg[2*idx+1];
+        int mid = l + (r-l)/2;
+        build(2*i+1, l, mid);
+        build(2*i+2, mid+1, r);
+        st[i] = st[2*i+1] + st[2*i+2];
     }
-
-    public static void push(int idx,int l,int r){
-        if(lazy[idx] != 0){
-            seg[idx]+= (r-l+1)*lazy[idx];
-
-            if(l!=r){
-                lazy[2*idx] += lazy[idx];
-                lazy[2*idx+1] += lazy[idx];
+    public static void update(int i, int l, int r, int ql, int qr, int u) {
+        if (lazy[i] != 0) {
+            st[i] += (r-l+1)*lazy[i];
+            if (l != r) {
+                lazy[2*i+1] += lazy[i];
+                lazy[2*i+2] += lazy[i];
             }
-
-            lazy[idx] = 0;
+            lazy[i] = 0;
         }
-    }
-    
-    public static void range_update(int ql,int qr,int idx,long val,int l,int r){
-        push(idx, l, r);
-
-        if(r < ql || l > qr)return;
-        if(ql <= l && r <= qr){
-          lazy[idx] += val;
-          push(idx,l,r);
-          return;
+        // completely outside
+        if (r < ql || qr < l) {
+            return;
         }
-
-        int mid = (l+r)/2;
-        range_update(ql, qr, 2*idx, val, l, mid);
-        range_update(ql, qr, 2*idx+1, val, mid+1, r);
-
-        seg[idx] = seg[2*idx] + seg[2*idx+1];
-        
+        // completely inside
+        if (ql <= l && r <= qr) {
+            st[i] += (r-l+1)*u;
+            if (l != r) {
+                lazy[2*i+1] += u;
+                lazy[2*i+2] += u;
+            }
+            return;
+        }
+        // overlapping
+        int mid = l + (r-l)/2;
+        update(2*i+1, l, mid, ql, qr, u);
+        update(2*i+2, mid+1, r, ql, qr, u);
+        st[i] = st[2*i+1] + st[2*i+2];
     }
-
-    public static long query(int idx,int k,int l,int r){
-       push(idx, l, r);
-
-       int mid = (l+r)/2;
-       if(l == r)return seg[idx];
-
-       if(k <= mid) return query(2*idx, k, l, mid);
-       else return query(2*idx+1, k, mid+1, r);
+    public static long query(int i, int l, int r, int idx) {
+        if (lazy[i] != 0) {
+            st[i] += (r-l+1)*lazy[i];
+            if (l != r) {
+                lazy[2*i+1] += lazy[i];
+                lazy[2*i+2] += lazy[i];
+            }
+            lazy[i] = 0;
+        }
+        if (l == r) {
+            return st[i];
+        }
+        int mid = l + (r-l)/2;
+        if (idx <= mid) {
+            return query(2*i+1, l, mid, idx);
+        } else {
+            return query(2*i+2, mid+1, r, idx);
+        }
     }
     public static void main(String[] args) throws IOException {
-   
-        FastScanner fc = new FastScanner();
-
-       int n = fc.nextInt();
-       int q = fc.nextInt();
-
-       arr = new long[n+1];
-       seg = new long[4*n + 5];
-       lazy = new long[4*n + 5];
-
-       StringBuilder sb = new StringBuilder();
-
-       for(int i = 1;i<=n;i++)arr[i] = fc.nextLong();
-
-       build_st(1, 1, n);
-
-       while(q-->0){
-           int type = fc.nextInt();
-
-           if(type == 1){
-            int a = fc.nextInt();
-            int b = fc.nextInt();
-            long u = fc.nextLong();
-
-            range_update(a, b, 1, u, 1, n);
-            
-           }
-           else{
-
-            int k = fc.nextInt();
-
-            sb.append(query(1,k,1,n)+"\n");
-           }
-       }
-
-       System.out.println(sb.toString().trim());
+        FastScanner sc = new FastScanner();
+        int n = sc.nextInt();
+        int q = sc.nextInt();
+        arr = new int[n];
+        for (int i=0; i<n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        st = new long[4*n];
+        lazy = new long[4*n];
+        build(0, 0, n-1);
+        StringBuilder sb = new StringBuilder();
+        while (q-- > 0) {
+            int type = sc.nextInt();
+            if (type == 1) {
+                int a = sc.nextInt();
+                int b = sc.nextInt();
+                int u = sc.nextInt();
+                update(0, 0, n-1, a-1, b-1, u);
+            } else if (type == 2) {
+                int k = sc.nextInt();
+                long ans = query(0, 0, n-1, k-1);
+                // System.out.println(ans);
+                sb.append(ans).append("\n");
+            }
+        }
+        System.out.println(sb.toString().trim());
     }
 }
