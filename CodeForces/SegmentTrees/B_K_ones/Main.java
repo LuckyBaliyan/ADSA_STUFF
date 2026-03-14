@@ -1,4 +1,4 @@
-//package CodeForces.SegmentTrees.B_K_ones;
+package CodeForces.SegmentTrees.B_K_ones;
 
 import java.util.Scanner;
 
