@@ -1,8 +1,5 @@
 package ClassTests.DP.D_Knapsack_1;
 
-import java.util.Arrays;
-import java.util.Scanner;
-
 public class solution {
    public static int d_KnapSack(int [] weights,int [] values,int N,int W){
       int n = weights.length;
