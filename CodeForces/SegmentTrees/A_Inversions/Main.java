@@ -1,4 +1,4 @@
-//package CodeForces.SegmentTrees.A_Inversions;
+package CodeForces.SegmentTrees.A_Inversions;
 
 import java.util.Scanner;
 
