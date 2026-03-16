@@ -1,4 +1,4 @@
-//package CodeForces.SegmentTrees.C_Nested_Segments;
+package CodeForces.SegmentTrees.C_Nested_Segments;
 
 import java.util.Arrays;
 import java.util.Scanner;
