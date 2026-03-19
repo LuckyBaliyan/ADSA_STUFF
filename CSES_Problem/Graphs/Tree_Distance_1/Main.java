@@ -1,4 +1,4 @@
-//package CSES_Problem.Graphs.Tree_Distance_1;
+package CSES_Problem.Graphs.Tree_Distance_1;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
