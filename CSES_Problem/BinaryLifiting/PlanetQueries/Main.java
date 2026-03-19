@@ -1,9 +1,9 @@
-package CSES_Problem.BinaryLifiting.CompanyQueries;
+//package CSES_Problem.BinaryLifiting.PlanetQueries;
 
 import java.io.*;
 
 public class Main {
-    static final int LOG = 20;
+    static final int LOG = 31;
     static int[][] up;
 
     // Fast Scanner
@@ -68,11 +68,9 @@ public class Main {
         up = new int[n + 1][LOG];
 
         // read parents
-        for (int i = 2; i <= n; i++) {
+        for (int i = 1; i <= n; i++) {
             up[i][0] = fr.nextInt();
         }
-
-        up[1][0] = 0;
 
         // binary lifting precompute
         for (int j = 1; j < LOG; j++) {
