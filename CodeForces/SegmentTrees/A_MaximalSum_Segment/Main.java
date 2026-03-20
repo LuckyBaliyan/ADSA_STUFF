@@ -20,8 +20,12 @@ public class Main {
     public static void build_St(int idx,int l,int r){
         if(l==r){
             //if neg value we can't take them
-            seg[idx] = new Node(arr[l],Math.max(arr[l],0),
-            Math.max(arr[l],0),Math.max(arr[l],0));
+            seg[idx] = new Node(
+                arr[l],
+               Math.max(arr[l],0),
+               Math.max(arr[l],0),
+               Math.max(arr[l],0)
+            );
 
             return;
         }

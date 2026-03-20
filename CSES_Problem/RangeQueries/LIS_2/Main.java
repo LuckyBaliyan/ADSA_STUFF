@@ -71,6 +71,7 @@ public class Main {
         cord.add(temp[0]);
 
         for(int i = 1;i<n;i++){
+            //remove duplicates
             if(temp[i-1] != temp[i]){
                 cord.add(temp[i]);
             }

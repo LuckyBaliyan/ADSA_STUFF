@@ -1,4 +1,4 @@
-//package CSES_Problem.BinaryLifiting.PlanetQueries;
+
 
 import java.io.*;
 
