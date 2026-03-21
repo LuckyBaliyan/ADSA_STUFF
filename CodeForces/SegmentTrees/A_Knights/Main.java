@@ -1,4 +1,4 @@
-//package CodeForces.SegmentTrees.A_Knights;
+
 
 import java.util.Scanner;
 
