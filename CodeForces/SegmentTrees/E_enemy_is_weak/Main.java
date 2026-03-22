@@ -1,4 +1,4 @@
-//package CodeForces.SegmentTrees.E_enemy_is_weak;
+package CodeForces.SegmentTrees.E_enemy_is_weak;
 
 import java.util.Arrays;
 import java.util.Scanner;
