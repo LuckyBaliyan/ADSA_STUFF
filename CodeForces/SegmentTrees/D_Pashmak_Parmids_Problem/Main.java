@@ -1,4 +1,4 @@
-//package CodeForces.SegmentTrees.D_Pashmak_Parmids_Problem;
+package CodeForces.SegmentTrees.D_Pashmak_Parmids_Problem;
 
 import java.util.Arrays;
 import java.util.HashMap;
