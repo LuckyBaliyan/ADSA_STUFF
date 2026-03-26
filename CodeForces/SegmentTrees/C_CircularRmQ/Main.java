@@ -1,4 +1,4 @@
-//package CodeForces.SegmentTrees.C_CircularRmQ;
+package CodeForces.SegmentTrees.C_CircularRmQ;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

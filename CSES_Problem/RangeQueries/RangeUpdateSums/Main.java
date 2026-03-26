@@ -1,4 +1,4 @@
-package CSES_Problem.RangeQueries.RangeUpdateSums;
+//package CSES_Problem.RangeQueries.RangeUpdateSums;
 
 import java.io.*;
 import java.util.*;
