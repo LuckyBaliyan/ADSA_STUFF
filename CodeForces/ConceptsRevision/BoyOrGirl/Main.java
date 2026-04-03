@@ -1,4 +1,4 @@
-//package CodeForces.ConceptsRevision.BoyOrGirl;
+package CodeForces.ConceptsRevision.BoyOrGirl;
 
 import java.util.Scanner;
 
