@@ -1,4 +1,4 @@
-//package CodeForces.ConceptsRevision.A_Nearly_Lucky_Num;
+package CodeForces.ConceptsRevision.A_Nearly_Lucky_Num;
 
 import java.util.Scanner;
 
