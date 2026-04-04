@@ -1,4 +1,4 @@
-//package CodeForces.ConceptsRevision.Queue_At_School;
+package CodeForces.ConceptsRevision.Queue_At_School;
 
 import java.util.Scanner;
 
