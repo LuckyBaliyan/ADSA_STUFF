@@ -1,4 +1,4 @@
-//package CodeForces.ConceptsRevision.Arrival_Of_The_General;
+package CodeForces.ConceptsRevision.Arrival_Of_The_General;
 
 import java.util.Scanner;
 
