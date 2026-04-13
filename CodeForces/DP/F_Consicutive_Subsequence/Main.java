@@ -1,4 +1,4 @@
-//package CodeForces.DP.F_Consicutive_Subsequence;
+package CodeForces.DP.F_Consicutive_Subsequence;
 
 import java.util.Scanner;
 
@@ -48,7 +48,6 @@ public class Main {
             i++;
         }
     }
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
