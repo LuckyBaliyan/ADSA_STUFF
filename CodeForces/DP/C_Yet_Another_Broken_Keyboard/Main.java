@@ -1,4 +1,4 @@
-//package CodeForces.DP.C_Yet_Another_Broken_Keyboard;
+package CodeForces.DP.C_Yet_Another_Broken_Keyboard;
 
 import java.util.Arrays;
 import java.util.HashSet;
