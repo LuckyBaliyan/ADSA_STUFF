@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.PriorityQueue;
 
 public class Main {
-     static class FastScanner {
+    static class FastScanner {
     private final byte[] buffer = new byte[1 << 16]; // 64 KB
     private int ptr = 0, len = 0;
 
