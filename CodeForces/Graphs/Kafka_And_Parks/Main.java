@@ -1,4 +1,4 @@
-//package CodeForces.Graphs.Kafka_And_Parks;
+package CodeForces.Graphs.Kafka_And_Parks;
 
 import java.util.ArrayList;
 import java.util.Scanner;
