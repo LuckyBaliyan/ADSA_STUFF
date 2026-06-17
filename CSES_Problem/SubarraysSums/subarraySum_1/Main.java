@@ -1,4 +1,4 @@
-//package CSES_Problem.SubarraysSums.subarraySum_1;
+
 
 import java.util.HashMap;
 
@@ -53,8 +53,8 @@ public class Main {
         //handle answern exsist in start
         map.put((long) 0,1);
 
-        for(long num : arr){
-            prefix += num;
+        for(long a : arr){
+            prefix += a;
             cnt += map.getOrDefault(prefix - x, 0);
             map.put(prefix, map.getOrDefault(prefix, 0)+1);
         }
