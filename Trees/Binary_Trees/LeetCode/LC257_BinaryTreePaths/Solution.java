@@ -1,4 +1,4 @@
-package Trees.Binary_Trees.LeetCode.LC257_MaximumPathSum;
+package Trees.Binary_Trees.LeetCode.LC257_BinaryTreePaths;
 
 import java.util.ArrayList;
 import java.util.List;
