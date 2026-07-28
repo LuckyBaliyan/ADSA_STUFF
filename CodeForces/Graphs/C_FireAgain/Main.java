@@ -1,63 +1,75 @@
 package CodeForces.Graphs.C_FireAgain;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.io.File;
+import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.StringTokenizer;
+import java.util.Scanner;
 
 public class Main {
-    static int [] dr = {-1,0,1,0};
-    static int [] dc = {0,-1,0,1};
-    public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer sc = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(sc.nextToken());
-        int M = Integer.parseInt(sc.nextToken());
+    static int n, m, k;
+    static boolean[][] visited;
+    static int[] dr = { 0, 0, 1, -1 };
+    static int[] dc = { 1, -1, 0, 0 };
 
-        boolean [][] visited = new boolean[N][M];
+    static Queue<int[]> q = new LinkedList<>();
 
-        Queue<int []> q = new LinkedList<>();
+    public static int[] bfs() {
 
-        int K = Integer.parseInt(br.readLine());
-        sc = new StringTokenizer("");
+        int lastX = 0;
+        int lastY = 0;
 
-        for(int i = 0; i < K; i++){
-           while (sc.countTokens() < 2) {
-               sc = new StringTokenizer(br.readLine());
-           }
-        
-           int x = Integer.parseInt(sc.nextToken()) - 1;
-           int y = Integer.parseInt(sc.nextToken()) - 1;
-        
-           q.offer(new int[]{x, y});
-           visited[x][y] = true;
-        }
+        while (!q.isEmpty()) {
 
-        int lastR = 0;
-        int lastC = 0;
+            int[] cur = q.poll();
+            int r = cur[0];
+            int c = cur[1];
 
-        while(!q.isEmpty()){
-            int [] curr = q.poll();
-            int r = curr[0];
-            int c = curr[1];
+            if (visited[r][c])
+                continue;
 
-            lastR = r;
-            lastC = c;
+            visited[r][c] = true;
 
-            for(int i = 0; i<4; i++){
-               int nr = r + dr[i];
-               int nc = c + dc[i];
+            lastX = r;
+            lastY = c;
 
-               if(nr >= 0 && nr < N && nc >= 0 && nc < M && 
-                !visited[nr][nc]){
-                    q.offer(new int [] {nr, nc});
-                    visited[nr][nc] = true;
+            for (int i = 0; i < 4; i++) {
+
+                int nr = r + dr[i];
+                int nc = c + dc[i];
+
+                if (nr >= 0 && nr < n &&
+                        nc >= 0 && nc < m &&
+                        !visited[nr][nc]) {
+
+                    q.offer(new int[] { nr, nc });
                 }
             }
         }
 
-        System.out.println((lastR + 1) + " " + (lastC+1));
+        return new int[] { lastX, lastY };
+    }
+
+    public static void main(String[] args) throws Exception {
+
+        Scanner sc = new Scanner(System.in);
+
+        n = sc.nextInt();
+        m = sc.nextInt();
+        k = sc.nextInt();
+
+        visited = new boolean[n][m];
+
+        for (int i = 0; i < k; i++) {
+            int x = sc.nextInt() - 1;
+            int y = sc.nextInt() - 1;
+            q.offer(new int[] { x, y });
+        }
+
+        int[] ans = bfs();
+
+        System.out.println((ans[0] + 1) + " " + (ans[1] + 1));
+        sc.close();
     }
 }
