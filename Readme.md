@@ -257,7 +257,7 @@ java filename
 # 📝 Naming Convention
 
 ```
-Question Name.java
+Question Name wise folder
 ```
 
 Example
