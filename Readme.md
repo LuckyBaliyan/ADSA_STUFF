@@ -263,9 +263,13 @@ Question Name wise folder
 Example
 
 ```
-Two Sum.java
-Maximum Subarray.java
-Binary Tree Level Order.java
+LeetCode/HashMap/Two_Sum/Solution.java
+LeetCode/Array/Maximum_Subarray/Solution.java
+LeetCode/Tree/Binary_Tree_Level_Order/Solution.java
+
+CodeForces/subarrayCounting/C_Ski_Resort/Main.java
+CodeForces/subarrayCounting/D_Xenia_and_Bit_Operations/Main.java
+
 ```
 
 ---
