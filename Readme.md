@@ -4,10 +4,10 @@
 
 <img src="https://readme-typing-svg.herokuapp.com?font=Poppins&weight=600&size=28&duration=3000&pause=1000&color=00C2FF&center=true&vCenter=true&width=700&lines=ADSA+Practice+Repository;Elite+Batch+Questions;LeetCode+%7C+GFG+%7C+CSES+%7C+Codeforces;Consistency+%2B+Practice+%3D+Success+🚀" />
 
-![GitHub stars](https://img.shields.io/github/stars/YOUR_USERNAME/YOUR_REPO?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/YOUR_USERNAME/YOUR_REPO?style=for-the-badge)
-![GitHub repo size](https://img.shields.io/github/repo-size/YOUR_USERNAME/YOUR_REPO?style=for-the-badge)
-![GitHub last commit](https://img.shields.io/github/last-commit/YOUR_USERNAME/YOUR_REPO?style=for-the-badge)
+![GitHub stars](https://img.shields.io/github/stars/LuckyBaliyan/ADSA_STUFF?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/LuckyBaliyan/ADSA_STUFF?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/LuckyBaliyan/ADSA_STUFF?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/LuckyBaliyan/ADSA_STUFF?style=for-the-badge)
 ![Java](https://img.shields.io/badge/Language-Java-orange?style=for-the-badge&logo=openjdk)
 ![Platform](https://img.shields.io/badge/Platforms-LeetCode%20%7C%20GFG%20%7C%20CSES%20%7C%20Codeforces-blueviolet?style=for-the-badge)
 
@@ -18,8 +18,8 @@
 | Details | Information |
 |---------|-------------|
 | 👤 Name | **Lucky Baliyan** |
-| 🎓 Semester | **05 & 06 (Current)** |
-| 🏫 Section | **Sec-62 (Elite Batch)** |
+| 🎓 Semester | **07th (Current)** |
+| 🏫 Section | **Sec-62 (Elite Batch) - not current** |
 | 🆔 ANO | **23SCSE1011394** |
 
 </div>
