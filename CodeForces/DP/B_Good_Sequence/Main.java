@@ -1,0 +1,83 @@
+package CodeForces.DP.B_Good_Sequence;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.StringTokenizer;
+
+/*B. Good Sequences
+time limit per test2 seconds
+memory limit per test256 megabytes
+Squirrel Liss is interested in sequences. She also has preferences of integers. She thinks n integers a1, a2, ..., an are good.
+
+Now she is interested in good sequences. A sequence x1, x2, ..., xk is called good if it satisfies the following three conditions:
+
+The sequence is strictly increasing, i.e. xi < xi + 1 for each i (1 ≤ i ≤ k - 1).
+No two adjacent elements are coprime, i.e. gcd(xi, xi + 1) > 1 for each i (1 ≤ i ≤ k - 1) (where gcd(p, q) denotes the greatest common divisor of the integers p and q).
+All elements of the sequence are good integers.
+Find the length of the longest good sequence.
+
+Input
+The input consists of two lines. The first line contains a single integer n (1 ≤ n ≤ 105) — the number of good integers. The second line contains a single-space separated list of good integers a1, a2, ..., an in strictly increasing order (1 ≤ ai ≤ 105; ai < ai + 1).
+
+Output
+Print a single integer — the length of the longest good sequence.
+
+Examples
+InputCopy
+5
+2 3 4 6 9
+OutputCopy
+4
+InputCopy
+9
+1 2 3 5 6 7 8 9 10
+OutputCopy
+4
+Note
+In the first example, the following sequences are examples of good sequences: [2; 4; 6; 9], [2; 4; 6], [3; 9], [6]. The length of the longest good sequence is 4.
+
+ */
+
+public class Main {
+
+      public static long gcd(long a, long b) {
+            while (b != 0) {
+                  long t = b;
+                  b = a % b;
+                  a = t;
+            }
+            return a;
+      }
+
+      public static void main(String[] args) throws IOException {
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            StringTokenizer st = new StringTokenizer(br.readLine());
+
+            int n = Integer.parseInt(st.nextToken());
+
+            long[] arr = new long[n];
+            long[] dp = new long[n];
+
+            Arrays.fill(dp, 1);
+
+            st = new StringTokenizer(br.readLine());
+
+            for (int i = 0; i < n; i++)
+                  arr[i] = Long.parseLong(st.nextToken());
+
+            long ans = 1;
+
+            for (int i = 0; i < n; i++) {
+                  for (int j = 0; j < i; j++) {
+                        if (arr[j] < arr[i] && gcd(arr[j], arr[i]) > 1) {
+                              dp[i] = Math.max(dp[i], dp[j] + 1);
+                              ans = Math.max(ans, dp[i]);
+                        }
+                  }
+            }
+
+            System.out.println(ans);
+      }
+}
